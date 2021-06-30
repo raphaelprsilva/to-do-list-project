@@ -24,3 +24,7 @@ ul {
 .delete {
   cursor: pointer;
 }
+
+.invisible {
+  display: none;
+}
