@@ -2,23 +2,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
+body {
+  background-color: rgb(87, 78, 78);
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(61, 57, 57);
+}
+
+header {
+  padding: 1rem;
+  margin: 1rem;
+}
 
 h1 {
   font-family: 'Nunito', sans-serif;
   font-size: 2.5rem;
+  color: rgb(238, 231, 231);
 }
 
-ul {
+.search-to-do input, .insert-new-to-do input {
+  padding: 0.5rem;
+  background-color: lightgray;
+  border-radius: 0.3rem;
+  margin: 1rem;
+}
+
+.is-todo-list {
   font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .is-list-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(229, 192, 192);
   list-style-type: none;
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 0.4rem 1rem;
-  margin: 0.6rem;
+  margin: 0.3rem;
+  width: 100%;
+}
+
+.is-list-item span, i {
+  align-items: center;
+  margin: 0.3rem;
 }
 
 .delete {

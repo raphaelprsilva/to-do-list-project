@@ -2,10 +2,6 @@ const formToSearchTodo = document.querySelector('.search-to-do');
 const formToAddNewTodo = document.querySelector('.insert-new-to-do');
 const todoList = document.querySelector('ul');
 
-// console.log(todoList.children);
-// console.log(Array.from(todoList.children));
-// console.log(Array.from(todoList.children)[0].innerText);
-
 formToAddNewTodo.addEventListener('submit', (event) => {
   event.preventDefault();
 
