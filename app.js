@@ -1,44 +1,52 @@
 const formToSearchTodo = document.querySelector('.search-to-do');
 const formToAddNewTodo = document.querySelector('.insert-new-to-do');
 const todoList = document.querySelector('ul');
+const allTodosItems = Array.from(todoList.children);
 
-formToAddNewTodo.addEventListener('submit', (event) => {
+const addNewTodo = (event) => {
   event.preventDefault();
 
   const newTodo = event.target.insert.value.trim();
 
-  todoList.innerHTML += `
-    <li class="is-list-item">
-      <span>${newTodo}</span>
-      <i class="far fa-trash-alt delete"></i>
-    </li>`;
+  if(newTodo) {
+    todoList.innerHTML += `
+      <li class="is-list-item">
+        <span>${newTodo}</span>
+        <i class="far fa-trash-alt delete"></i>
+      </li>`;
+  
+    event.target.reset();
+  }
+};
 
-  event.target.reset();
-});
-
-todoList.addEventListener('click', (event) => {
+const deleteTodo = (event) => {
   const clickedItem = event.target;
+  const clickedItemClasses = Array.from(clickedItem.classList);
+  const isdeleteClassIncluded = clickedItemClasses.includes('delete');
 
-  if (clickedItem.className.includes('delete')) {
+  if (isdeleteClassIncluded) {
     clickedItem.parentElement.remove();
   }
-});
+};
 
-formToSearchTodo.addEventListener('input', (event) => {
+const filterTodos = (event) => {
   event.preventDefault();
 
-  console.log(event.target.value.trim().toLowerCase());
+  const findTodo = event.target.value.trim().toLowerCase();
 
-  Array.from(todoList.children)
-    .filter((todo) => !todo.innerText.toLowerCase().includes(event.target.value.trim().toLowerCase()))
+  allTodosItems
+    .filter((todo) => !todo.innerText.toLowerCase().includes(findTodo))
     .forEach((todo) => {
       todo.classList.add('invisible');
     });
 
-  Array.from(todoList.children)
-    .filter((todo) => todo.innerText.toLowerCase().includes(event.target.value.trim().toLowerCase()))
+  allTodosItems
+    .filter((todo) => todo.innerText.toLowerCase().includes(findTodo))
     .forEach((todo) => {
       todo.classList.remove('invisible');
     });
-  // console.log(filteredTodos);
-})
+};
+
+formToAddNewTodo.addEventListener('submit', addNewTodo);
+todoList.addEventListener('click', deleteTodo);
+formToSearchTodo.addEventListener('input', filterTodos);
