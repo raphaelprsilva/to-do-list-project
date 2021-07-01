@@ -10,33 +10,56 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
-  <div class="main-container">
+  <div class="main">
     <header>
       <h1>To-do List</h1>
     </header>
+    
+    <div class="main-container">
+      <form class="search-to-do">
+        <input type="text" name="search" placeholder="Pesquisar to-do" autofocus>
+      </form>
+    
+      <ul class="is-todo-list">
+        <li class="is-list-item">
+          <span>Assistir Breaking Bad</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+        <li class="is-list-item">
+          <span>Planejar Aulas</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+        <li class="is-list-item">
+          <span>Fazer alguns projetos pendentes</span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+      </ul>
+    
+      <form class="insert-new-to-do">
+        <input type="text" name="insert" placeholder="Adicionar to-do" autofocus>
+      </form>
+    </div>
   
-    <form class="search-to-do">
-      <input type="text" name="search" placeholder="Pesquisar to-do" autofocus>
-    </form>
-  
-    <ul class="is-todo-list">
-      <li class="is-list-item">
-        <span>Assistir Breaking Bad</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-      <li class="is-list-item">
-        <span>Planejar Aulas</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-      <li class="is-list-item">
-        <span>Fazer alguns projetos pendentes</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-    </ul>
-  
-    <form class="insert-new-to-do">
-      <input type="text" name="insert" placeholder="Adicionar to-do" autofocus>
-    </form>
+    <footer>
+      <h3 class="author-name">Author: Raphael Silva</h3>
+        <div class="icons-container">
+          <div class="icon-item">
+            <a href="https://www.linkedin.com/in/raphael-pereira-silva/" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <div class="icon-item">
+            <a href="https://github.com/raphaelprsilva/" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="icon-item">
+            <a href="mailto:raphaelprsilva@gmail.com" target="_blank">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+    </footer>
   </div>
 
   <script src="./app.js"></script>

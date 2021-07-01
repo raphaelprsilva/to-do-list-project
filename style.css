@@ -1,21 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+html {
+  height: 100%;
+}
 
 body {
-  background-color: rgb(87, 78, 78);
+  height: 100%;
 }
-.main-container {
+
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: rgb(61, 57, 57);
+  height: 100%;
 }
 
 header {
+  background-color: rgb(42, 42, 42);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  margin: 1rem;
+  height: 70px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(61, 57, 57);
+  flex: 1 0 auto;
 }
 
 h1 {
@@ -25,35 +43,81 @@ h1 {
 }
 
 .search-to-do input, .insert-new-to-do input {
+  font-family: 'Indie Flower', Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bolder;
   padding: 0.5rem;
-  background-color: lightgray;
+  background-color: azure;
   border-radius: 0.3rem;
   margin: 1rem;
 }
 
 .is-todo-list {
-  font-family: 'Nanum Pen Script', Arial, Helvetica, sans-serif;
+  font-family: 'Indie Flower', Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .is-list-item {
   display: flex;
-  justify-content: space-between;
-  background-color: rgb(229, 192, 192);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(236, 226, 226);
+  word-wrap: break-word;
   list-style-type: none;
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 0.4rem 1rem;
   margin: 0.3rem;
-  width: 100%;
+}
+
+.is-list-item:hover {
+  background-color: rgb(238, 186, 186);
+}
+
+.is-list-item span {
+  width: 80%;
 }
 
 .is-list-item span, i {
   align-items: center;
   margin: 0.3rem;
+}
+
+footer {
+  background-color: rgb(42, 42, 42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-family: 'Nunito', sans-serif;
+  color: azure;
+  font-size: 1.2rem;
+  padding: 1.2rem;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  width: 40%;
+}
+
+.icon-item a {
+  color: azure;
+}
+
+.icon-item a:hover {
+  color:rgb(229, 192, 192);
 }
 
 .delete {
