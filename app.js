@@ -14,7 +14,7 @@ const addNewTodo = (event) => {
         <span>${newTodo}</span>
         <i class="far fa-trash-alt delete"></i>
       </li>`;
-  
+
     event.target.reset();
   }
 };
