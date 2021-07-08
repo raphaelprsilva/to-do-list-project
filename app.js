@@ -1,14 +1,13 @@
 const formToSearchTodo = document.querySelector('.search-to-do');
 const formToAddNewTodo = document.querySelector('.insert-new-to-do');
 const todoList = document.querySelector('ul');
-const allTodosItems = Array.from(todoList.children);
 
 const addNewTodo = (event) => {
   event.preventDefault();
 
   const newTodo = event.target.insert.value.trim();
 
-  if(newTodo) {
+  if (newTodo) {
     todoList.innerHTML += `
       <li class="is-list-item">
         <span>${newTodo}</span>
@@ -32,6 +31,7 @@ const deleteTodo = (event) => {
 const filterTodos = (event) => {
   event.preventDefault();
 
+  const allTodosItems = Array.from(todoList.children);
   const findTodo = event.target.value.trim().toLowerCase();
 
   allTodosItems
@@ -49,4 +49,5 @@ const filterTodos = (event) => {
 
 formToAddNewTodo.addEventListener('submit', addNewTodo);
 todoList.addEventListener('click', deleteTodo);
+formToSearchTodo.addEventListener('submit', (event) => event.preventDefault());
 formToSearchTodo.addEventListener('input', filterTodos);
