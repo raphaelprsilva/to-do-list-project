@@ -32,16 +32,16 @@ const filterTodos = (event) => {
   event.preventDefault();
 
   const allTodosItems = Array.from(todoList.children);
-  const findTodo = event.target.value.trim().toLowerCase();
+  const inputValue = event.target.value.trim().toLowerCase();
 
   allTodosItems
-    .filter((todo) => !todo.innerText.toLowerCase().includes(findTodo))
+    .filter((todo) => !todo.innerText.toLowerCase().includes(inputValue))
     .forEach((todo) => {
       todo.classList.add('invisible');
     });
 
   allTodosItems
-    .filter((todo) => todo.innerText.toLowerCase().includes(findTodo))
+    .filter((todo) => todo.innerText.toLowerCase().includes(inputValue))
     .forEach((todo) => {
       todo.classList.remove('invisible');
     });
