@@ -9,23 +9,51 @@ const addNewTodo = (event) => {
 
   if (newTodo) {
     todoList.innerHTML += `
-      <li class="is-list-item">
+      <li class="is-list-item" data-todo="${newTodo}">
         <span>${newTodo}</span>
-        <i class="far fa-trash-alt delete"></i>
+        <i class="far fa-trash-alt" data-trash="${newTodo}"></i>
       </li>`;
 
     event.target.reset();
   }
 };
 
+const removeTodo = (clickedItem) => {
+  const dataTrashValue = clickedItem.dataset.trash;
+  const todo = document.querySelector(`[data-todo="${dataTrashValue}"]`);
+
+  if (dataTrashValue) {
+    todo.remove();
+  }
+};
+
 const deleteTodo = (event) => {
   const clickedItem = event.target;
-  const clickedItemClasses = Array.from(clickedItem.classList);
-  const isdeleteClassIncluded = clickedItemClasses.includes('delete');
+  removeTodo(clickedItem);
+};
 
-  if (isdeleteClassIncluded) {
-    clickedItem.parentElement.remove();
-  }
+const filterTodo = (allTodosItems, inputValue, returnMatchedTodos) => {
+  return allTodosItems.filter((todo) => {
+    const matchedTodos = todo.innerText.toLowerCase().includes(inputValue);
+    return returnMatchedTodos ? matchedTodos : !matchedTodos;
+  });
+};
+
+const manipulateTodos = (arrayOfTodos, classToAdd) => {
+  arrayOfTodos.forEach((todo) => {
+    todo.classList.add(classToAdd);
+  });
+};
+
+const hideTodo = (allTodosItems, inputValue, classToAdd) => {
+  const todosToHide = filterTodo(allTodosItems, inputValue, false);
+  console.log(todosToHide);
+  manipulateTodos(todosToHide, classToAdd);
+};
+
+const showTodo = (allTodosItems, inputValue, classToRemove) => {
+  const todosToShow = filterTodo(allTodosItems, inputValue, true);
+  manipulateTodos(todosToShow, classToRemove);
 };
 
 const filterTodos = (event) => {
@@ -34,17 +62,8 @@ const filterTodos = (event) => {
   const allTodosItems = Array.from(todoList.children);
   const inputValue = event.target.value.trim().toLowerCase();
 
-  allTodosItems
-    .filter((todo) => !todo.innerText.toLowerCase().includes(inputValue))
-    .forEach((todo) => {
-      todo.classList.add('invisible');
-    });
-
-  allTodosItems
-    .filter((todo) => todo.innerText.toLowerCase().includes(inputValue))
-    .forEach((todo) => {
-      todo.classList.remove('invisible');
-    });
+  hideTodo(allTodosItems, inputValue, 'invisible');
+  showTodo(allTodosItems, inputValue, 'invisible');
 };
 
 formToAddNewTodo.addEventListener('submit', addNewTodo);

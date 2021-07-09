@@ -42,7 +42,8 @@ h1 {
   color: rgb(238, 231, 231);
 }
 
-.search-to-do input, .insert-new-to-do input {
+.search-to-do input,
+.insert-new-to-do input {
   font-family: 'Indie Flower', Arial, Helvetica, sans-serif;
   font-size: 1.1rem;
   font-weight: bolder;
@@ -83,7 +84,8 @@ h1 {
   width: 80%;
 }
 
-.is-list-item span, i {
+.is-list-item span,
+i {
   align-items: center;
   margin: 0.3rem;
 }
@@ -117,10 +119,10 @@ footer {
 }
 
 .icon-item a:hover {
-  color:rgb(229, 192, 192);
+  color: rgb(229, 192, 192);
 }
 
-.delete {
+i[data-trash] {
   cursor: pointer;
 }
 
