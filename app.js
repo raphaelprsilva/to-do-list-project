@@ -32,28 +32,28 @@ const deleteTodo = (event) => {
   removeTodo(clickedItem);
 };
 
-const filterTodo = (allTodosItems, inputValue, returnMatchedTodos) => {
-  return allTodosItems.filter((todo) => {
+const filterTodo = (allTodosItems, inputValue, returnMatchedTodos) =>
+  allTodosItems.filter((todo) => {
     const matchedTodos = todo.innerText.toLowerCase().includes(inputValue);
     return returnMatchedTodos ? matchedTodos : !matchedTodos;
   });
-};
 
-const manipulateTodos = (arrayOfTodos, classToAdd) => {
+const manipulateTodos = (arrayOfTodos, classToAdd, classToRemove) => {
   arrayOfTodos.forEach((todo) => {
     todo.classList.add(classToAdd);
+    todo.classList.remove(classToRemove);
   });
 };
 
-const hideTodo = (allTodosItems, inputValue, classToAdd) => {
+const hideTodo = (allTodosItems, inputValue) => {
   const todosToHide = filterTodo(allTodosItems, inputValue, false);
   console.log(todosToHide);
-  manipulateTodos(todosToHide, classToAdd);
+  manipulateTodos(todosToHide, 'invisible', 'inherit');
 };
 
-const showTodo = (allTodosItems, inputValue, classToRemove) => {
+const showTodo = (allTodosItems, inputValue) => {
   const todosToShow = filterTodo(allTodosItems, inputValue, true);
-  manipulateTodos(todosToShow, classToRemove);
+  manipulateTodos(todosToShow, 'inherit', 'invisible');
 };
 
 const filterTodos = (event) => {
@@ -62,8 +62,8 @@ const filterTodos = (event) => {
   const allTodosItems = Array.from(todoList.children);
   const inputValue = event.target.value.trim().toLowerCase();
 
-  hideTodo(allTodosItems, inputValue, 'invisible');
-  showTodo(allTodosItems, inputValue, 'invisible');
+  hideTodo(allTodosItems, inputValue);
+  showTodo(allTodosItems, inputValue);
 };
 
 formToAddNewTodo.addEventListener('submit', addNewTodo);
