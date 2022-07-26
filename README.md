@@ -23,7 +23,7 @@ Este repositório contém ativos do projeto 'To do list', feito com javascript p
 
 ### Link para acessar o projeto
 
-<a href="https://todo-list.elraphael.com.br/" target="_blank">To Do List</a>
+<a href="https://todo-list.elraphael.com.br/" target="_blank" rel="noopener">To Do List</a>
 
 ---
 
