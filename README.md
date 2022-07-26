@@ -21,9 +21,9 @@ Este repositório contém ativos do projeto 'To do list', feito com javascript p
 - Como acessar os atributos data de um elemento HTML, por meio da propriedade dataset;
 - Efeito colateral.
 
-### Link
+### Link para acessar o projeto
 
-[To do List](https://www.elraphael.com.br/todo-list/)
+<a href="https://todo-list.elraphael.com.br/" target="_blank">To Do List</a>
 
 ---
 
